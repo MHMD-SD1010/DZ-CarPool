@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.db
+*.sqlite3
+
+# Django
+/backend/media/
+/backend/staticfiles/
+/backend/.env
+/backend/.env.example
+/backend/.env.prod
+*.log
+
+# Node
+/frontend/node_modules/
+/frontend/build/
+/frontend/.env.local
+/frontend/.env
+
+# Docker
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.env.example
+.env.prod
+.env
+
+# Ajoutez ces lignes à votre .gitignore
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+*.zip
+
+# Screenshots et vidéos de tests
+**/test-results/**/*.png
+**/test-results/**/*.webm
+**/test-results/**/*.mp4
+
+# Traces Playwright
+trace.zip

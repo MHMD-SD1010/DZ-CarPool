@@ -1,0 +1,295 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  # Job 1: Linting
+  lint:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-lint-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-lint-
+    
+    - name: Install linting tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install black flake8 isort
+    
+    - name: Run Black
+      run: black --check Backend/ || echo "Black formatting issues found"
+      continue-on-error: true
+    
+    - name: Run Flake8
+      run: flake8 Backend/ --max-line-length=100 --exclude=migrations,venv || echo "Flake8 issues found"
+      continue-on-error: true
+    
+    - name: Run isort
+      run: isort --check-only --profile black Backend/ || echo "Import sorting issues found"
+      continue-on-error: true
+
+  # Job 2: Tests
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-test-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-test-
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y postgresql-client redis-tools
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r Backend/requirements.txt
+        pip install coverage tblib
+        pip list
+    
+    - name: Create environment file
+      run: |
+        cat > Backend/.env << 'EOF'
+        DEBUG=True
+        DJANGO_ENV=test
+
+        SECRET_KEY=django-insecure-ci-test-key-123456789
+
+        ALLOWED_HOSTS=localhost,127.0.0.1
+
+        USE_REDIS=False
+
+        DB_NAME=test_db
+        DB_USER=postgres
+        DB_PASSWORD=postgres
+        DB_HOST=localhost
+        DB_PORT=5432
+
+        EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+        DEFAULT_FROM_EMAIL=test@dzcarpool.com
+
+        GOOGLE_OAUTH_CLIENT_ID=test-google-client-id
+        GOOGLE_OAUTH_CLIENT_SECRET=test-google-client-secret
+        NEXT_PUBLIC_GOOGLE_CLIENT_ID=test-google-client-id
+        EOF
+
+    
+    - name: Create directories
+      run: |
+        mkdir -p Backend/logs
+        mkdir -p Backend/media/documents
+        mkdir -p Backend/staticfiles
+    
+    - name: Verify PostgreSQL connection
+      run: |
+        echo "=== PostgreSQL Connection ==="
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -c "SELECT version();"
+    
+    - name: Check Django configuration
+      working-directory: Backend
+      run: |
+        python manage.py check --settings=config.settings
+        python manage.py check --deploy --settings=config.settings || true
+    
+    - name: Run migrations
+      working-directory: Backend
+      run: |
+        python manage.py migrate --noinput --settings=config.settings --verbosity=1
+    
+    - name: Clean old test databases
+      run: |
+        PGPASSWORD=postgres psql -h localhost -U postgres << EOF
+        DROP DATABASE IF EXISTS test_test_db;
+        DROP DATABASE IF EXISTS test_test_db_1;
+        DROP DATABASE IF EXISTS test_test_db_2;
+        DROP DATABASE IF EXISTS test_test_db_3;
+        DROP DATABASE IF EXISTS test_test_db_4;
+        EOF
+      continue-on-error: true
+    
+    - name: Run tests with coverage
+      working-directory: Backend
+      run: |
+        coverage run --source='app' manage.py test app.users.tests \
+          --settings=config.settings \
+          --verbosity=2 \
+          --noinput
+        
+        echo "=== Coverage Report ==="
+        coverage report --skip-covered
+        
+        echo "=== Generating Coverage Files ==="
+        coverage xml
+        coverage html
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./Backend/coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+    
+    - name: Archive coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: Backend/htmlcov/
+        retention-days: 7
+      if: always()
+    
+    - name: Archive test logs
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs
+        path: Backend/logs/
+        retention-days: 7
+      if: failure()
+
+  # Job 3: Security
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: lint
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-security-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-security-
+    
+    - name: Install security tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install safety bandit
+    
+    - name: Run Safety check
+      run: |
+        echo "=== Checking for known security vulnerabilities ==="
+        safety check --json > safety-report.json || true
+        safety check || true
+      continue-on-error: true
+    
+    - name: Run Bandit
+      run: |
+        echo "=== Scanning code for security issues ==="
+        bandit -r Backend/ -f json -o bandit-report.json || true
+        bandit -r Backend/ -ll || true
+      continue-on-error: true
+    
+    - name: Upload security reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-reports
+        path: |
+          safety-report.json
+          bandit-report.json
+        retention-days: 30
+      if: always()
+
+  # Job 4: Build Docker (optionnel)
+  build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: [test, security]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+    
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      if: github.event_name == 'push'
+      continue-on-error: true
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: Backend/
+        push: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        tags: |
+          ${{ secrets.DOCKER_USERNAME }}/dzcarpool:latest
+          ${{ secrets.DOCKER_USERNAME }}/dzcarpool:${{ github.sha }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+      continue-on-error: true

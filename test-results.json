@@ -1,0 +1,1159 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\DELL\\Desktop\\Projet_GL\\covoiturage\\playwright.config.ts",
+    "rootDir": "C:/Users/DELL/Desktop/Projet_GL/covoiturage/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/DELL/Desktop/Projet_GL/covoiturage/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/DELL/Desktop/Projet_GL/covoiturage/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "02-create-trip.spec.ts",
+      "file": "02-create-trip.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Création de trajet",
+          "file": "02-create-trip.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "01 - Création complète d'un trajet avec succès",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 22238,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "📝 Création d'un trajet: {\n  departure: \u001b[32m'Alger'\u001b[39m,\n  arrival: \u001b[32m'Oran'\u001b[39m,\n  date: \u001b[32m'2026-01-26'\u001b[39m,\n  dateInTwoDays: \u001b[36m[Function: dateInTwoDays]\u001b[39m,\n  time: \u001b[32m'14:00'\u001b[39m,\n  seats: \u001b[33m3\u001b[39m,\n  price: \u001b[33m1500\u001b[39m,\n  fuelType: \u001b[32m'gasoil'\u001b[39m,\n  fuelConsumption: \u001b[33m7.5\u001b[39m\n}\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "✅ Départ: \"Alger\", Arrivée: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "⏳ Attente calcul distance...\n"
+                        },
+                        {
+                          "text": "✅ Distance calculée\n\n"
+                        },
+                        {
+                          "text": "✅ Trajet créé avec succès, redirection effectuée\n"
+                        }
+                      ],
+                      "stderr": [
+                        {
+                          "text": "   ⚠️ Pas de suggestion trouvée\n"
+                        },
+                        {
+                          "text": "   ⚠️ BUG : La liste s'est réouverte ! Fermeture forcée...\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:32:34.666Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-f31e48b3befd490e4d6b",
+              "file": "02-create-trip.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "02 - Validation des champs obligatoires",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9954,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "✅ Validation des champs obligatoires OK\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:32:57.039Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-aa7c7e33feb5324a44b6",
+              "file": "02-create-trip.spec.ts",
+              "line": 76,
+              "column": 7
+            },
+            {
+              "title": "03 - Calcul automatique de la distance",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15582,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "⏳ Attente calcul distance...\n"
+                        },
+                        {
+                          "text": "✅ Distance calculée\n\n"
+                        },
+                        {
+                          "text": "✅ Distance calculée: 419 km\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:33:07.028Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-10b4ad815756f3c70d4d",
+              "file": "02-create-trip.spec.ts",
+              "line": 92,
+              "column": 7
+            },
+            {
+              "title": "04 - Prix suggéré basé sur le carburant",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14259,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "⏳ Attente calcul distance...\n"
+                        },
+                        {
+                          "text": "✅ Distance calculée\n\n"
+                        },
+                        {
+                          "text": "💡 Prix suggéré: 610 DZD\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:33:22.639Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-2fe00c4aa2c8c9f18ee6",
+              "file": "02-create-trip.spec.ts",
+              "line": 111,
+              "column": 7
+            },
+            {
+              "title": "05 - Option trajet Comfort (+30%)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14238,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "💎 Prix avec Comfort: 1495 DZD (avant: 1150 DZD)\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:33:36.916Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-f48e77e4b0a902d85277",
+              "file": "02-create-trip.spec.ts",
+              "line": 131,
+              "column": 7
+            },
+            {
+              "title": "06 - Sélection de préférences de trajet",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5439,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "📝 18 préférences trouvées\n"
+                        },
+                        {
+                          "text": "✅ 3 préférences sélectionnées\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:33:51.174Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-7f127f16d4f197243184",
+              "file": "02-create-trip.spec.ts",
+              "line": 153,
+              "column": 7
+            },
+            {
+              "title": "07 - Aperçu carte avec itinéraire",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11883,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "✅ Carte OpenStreetMap affichée dans iframe\n"
+                        },
+                        {
+                          "text": "✅ Carte interactive affichée\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:33:56.638Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-17c96b193651230eeaf3",
+              "file": "02-create-trip.spec.ts",
+              "line": 173,
+              "column": 7
+            },
+            {
+              "title": "08 - Ajout de détails supplémentaires",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12386,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "✅ Détails supplémentaires ajoutés\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:34:08.543Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-31b5d5b4b58bf8f245e2",
+              "file": "02-create-trip.spec.ts",
+              "line": 187,
+              "column": 7
+            },
+            {
+              "title": "09 - Dates futures uniquement",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11557,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Connexion avec compte vérifié: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "🔐 Connexion avec: r_bessah@estin.dz\n"
+                        },
+                        {
+                          "text": "✅ Connexion réussie\n"
+                        },
+                        {
+                          "text": "✅ Utilisateur authentifié et vérifié\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ DÉPART avec \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 0 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #0 avec placeholder: \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur DÉPART\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Alger\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"AlgerAlger\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Alger, Alger\"\n"
+                        },
+                        {
+                          "text": "✅ DÉPART rempli avec succès: \"Alger, Alger\"\n\n"
+                        },
+                        {
+                          "text": "\n📍 Remplissage du champ ARRIVÉE avec \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 input(s) text trouvé(s) sur la page\n"
+                        },
+                        {
+                          "text": "   → Input #1 avec placeholder: \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → Valeur actuelle: \"\"\n"
+                        },
+                        {
+                          "text": "   → Clic : Focus sur ARRIVÉE\n"
+                        },
+                        {
+                          "text": "   → Saisie de \"Oran\"\n"
+                        },
+                        {
+                          "text": "   → 2 suggestion(s) trouvée(s)\n"
+                        },
+                        {
+                          "text": "   → Clic sur suggestion: \"OranOran\"\n"
+                        },
+                        {
+                          "text": "   → Attente fermeture automatique de la liste...\n"
+                        },
+                        {
+                          "text": "   → Vérification que la liste reste fermée...\n"
+                        },
+                        {
+                          "text": "   ✅ Liste correctement fermée\n"
+                        },
+                        {
+                          "text": "   → Valeur finale: \"Oran, Oran\"\n"
+                        },
+                        {
+                          "text": "✅ ARRIVÉE rempli avec succès: \"Oran, Oran\"\n\n"
+                        },
+                        {
+                          "text": "✅ Validation des dates passées OK\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-25T19:34:20.960Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b516c5a2f5e7d7fc3ad2-079b60bf1505a762e54d",
+              "file": "02-create-trip.spec.ts",
+              "line": 212,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-01-25T19:32:33.419Z",
+    "duration": 119444.295,
+    "expected": 9,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
