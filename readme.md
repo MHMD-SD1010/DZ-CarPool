@@ -15,6 +15,59 @@
 
 Le projet répond à un besoin réel en Algérie : réduire les coûts de transport, optimiser l'utilisation des véhicules privés, et offrir une alternative moderne aux transports en commun traditionnels.
 
+## ❗ Problématique
+
+L'Algérie fait face à plusieurs défis majeurs en matière de transport :
+
+- **Manque de transport inter-wilayas fiable** : Les liaisons entre villes sont souvent insuffisantes, irrégulières ou inconfortables.
+- **Coût élevé des déplacements** : Le transport individuel représente une charge financière importante pour les étudiants et les travailleurs.
+- **Absence de plateforme numérique locale** : Il n'existe pas de solution de covoiturage adaptée au contexte algérien (wilayas, prix du carburant local, langue, etc.).
+- **Sous-utilisation des véhicules privés** : La majorité des conducteurs voyagent seuls, laissant des places vides qui pourraient profiter à d'autres.
+
+**DZ-CarPool** répond directement à ces problèmes en offrant une plateforme moderne, sécurisée et adaptée aux réalités algériennes.
+
+---
+
+## 💡 Solution Proposée
+
+Notre plateforme permet :
+
+- Aux **conducteurs** de publier leurs trajets et de rentabiliser leurs déplacements
+- Aux **passagers** de trouver facilement un trajet fiable à moindre coût
+- De **réduire l'empreinte carbone** en optimisant l'utilisation des véhicules
+- De **digitaliser** le covoiturage informel qui existe déjà en Algérie
+
+## 📐 Méthodologie
+
+Le projet a été développé en suivant les bonnes pratiques du **Génie Logiciel** :
+
+### 1. Analyse des Besoins
+- Identification des parties prenantes (conducteurs, passagers, administrateurs)
+- Rédaction du cahier des charges fonctionnel et technique
+- Modélisation UML (diagrammes de cas d'utilisation, de classes, de séquences)
+
+### 2. Conception
+- Architecture **client-serveur découplée** (Backend API + Frontend SPA)
+- Conception de la base de données relationnelle (PostgreSQL)
+- Définition des endpoints RESTful selon les standards OpenAPI
+
+### 3. Développement
+- Méthodologie **Agile** avec des itérations courtes
+- Développement en parallèle Backend / Frontend
+- Revues de code régulières entre membres de l'équipe
+- Utilisation de **Git** et **GitHub** pour la gestion de versions
+
+### 4. Tests & Qualité
+- Tests unitaires : **Pytest** (Backend), **Jest** (Frontend)
+- Tests End-to-End : **Playwright**
+- Analyse statique du code : **Flake8**, **ESLint**
+- Couverture de code mesurée et rapportée
+
+### 5. Déploiement
+- **Containerisation** complète avec Docker et Docker Compose
+- Pipeline **CI/CD** automatisé via GitHub Actions
+- Chaque push déclenche : vérification qualité → tests → build
+
 ---
 
 ## 🎯 Fonctionnalités Principales
