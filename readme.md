@@ -125,31 +125,31 @@ docker-compose exec backend python manage.py createsuperuser
 ---
 
 ## 📁 Structure du Projet
+
+
+```
 DZ-CarPool/
-├── .github/
-│   └── workflows/          # Pipelines CI/CD GitHub Actions
-├── Backend/                # API Django REST Framework
-│   ├── config/             # Configuration Django (settings, urls)
+├── backend/                # API Django REST
+│   ├── app/                # Apps Django
+│   ├── config/             # Configuration Django
 │   ├── core/               # Logique métier commune
-│   ├── apps/               # Applications Django modulaires
-│   │   ├── users/          # Gestion des utilisateurs
-│   │   ├── trips/          # Gestion des trajets
-│   │   ├── bookings/       # Réservations
-│   │   └── messaging/      # Messagerie
-│   ├── tests/              # Tests unitaires et d'intégration
-│   └── requirements.txt    # Dépendances Python
-├── frontend/               # Application Next.js 14
-│   ├── app/                # Pages et routing (App Router)
+│   ├── tests/              # Tests backend
+│   ├── utils/              # Outils utilitaires
+│   └── media/              # Fichiers uploadés
+├── frontend/               # Application React
+│   ├── app/                # Pages / routing
 │   ├── components/         # Composants réutilisables
+│   ├── contexts/           # Context API / Auth
 │   ├── hooks/              # Hooks personnalisés
 │   ├── services/           # Appels API
-│   ├── stores/             # Gestion d'état (Zustand)
-│   └── tests/          # Tests Jest
-├── BDD/                    # Scripts et schémas base de données
-├── apps/                   # Configuration des applications
-├── docker-compose.yml      # Orchestration des services
-├── makefile                # Commandes utilitaires
+│   └── public/             # Assets publics
+├── docs/                   # Documentation
+│   ├── design/
+│   └── diagrams/
+├── integration/            # Intégration / E2E
+├── docker-compose.yml      # Orchestration Docker
 └── README.md
+```
 
 ---
 
